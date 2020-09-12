@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 6 Oct, 2018 2:43:58 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJO.Address" table="address" catalog="lab10">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="streetName" type="string">
+            <column name="StreetName" length="45" />
+        </property>
+        <property name="cityName" type="string">
+            <column name="CityName" length="45" />
+        </property>
+        <property name="stateName" type="string">
+            <column name="StateName" length="45" />
+        </property>
+        <property name="zip" type="java.lang.Integer">
+            <column name="zip" />
+        </property>
+        <set name="employees" table="employee" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Address" />
+            </key>
+            <one-to-many class="POJO.Employee" />
+        </set>
+    </class>
+</hibernate-mapping>

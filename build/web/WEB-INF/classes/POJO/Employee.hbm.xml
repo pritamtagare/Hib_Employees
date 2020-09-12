@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 6 Oct, 2018 2:43:58 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="POJO.Employee" table="employee" catalog="lab10">
+        <id name="empId" type="java.lang.Integer">
+            <column name="emp_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="address" class="POJO.Address" fetch="select">
+            <column name="Address" />
+        </many-to-one>
+        <property name="firstName" type="string">
+            <column name="FirstName" length="45" />
+        </property>
+        <property name="secondName" type="string">
+            <column name="SecondName" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>
